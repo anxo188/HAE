@@ -1,4 +1,4 @@
-//Recordatorio: Añadir librerias de LCD y Conversiones en Library Manager
+//Recordatorio: AÃ±adir librerias de LCD y Conversiones en Library Manager
 //LCD pinout
 sbit LCD_RS at RD2_bit;
 sbit LCD_EN at RD3_bit;
@@ -40,8 +40,8 @@ void interrupt()
    if(PIR1.ADIF)
    {
         aux = ADRESL +(ADRESH << 8);//Para bit ADFM = 1
-      //Fórmula: TºC = V0 * 100;
-      resultado = ((aux * 500.0)/1023.0); //Convierto el valor propocionado por el convertidor mediante una regla de 3 sabiendo el valor máximo del convertidor y la tension de referencia
+      //FÃ³rmula: TÂºC = V0 * 100;
+      resultado = ((aux * 500.0)/1023.0); //Convierto el valor propocionado por el convertidor mediante una regla de 3 sabiendo el valor mÃ¡ximo del convertidor y la tension de referencia
 
       representar();
       PIR1.ADIF =0 ;
@@ -52,7 +52,7 @@ void interrupt()
   else if(INTCON.TMR0IF)
   {
        INTCON.TMR0IF = 0;//Pongo a 0 el flag de interrupcion
-       //Reseteo el valor inicial (alfa) del ‘timer’
+       //Reseteo el valor inicial (alfa) del â€˜timerâ€™
        TMR0H =(18661 >>8); //Primero los bits altos
        TMR0L = (18661);//Despues los bits bajos
        ADCON0.B2 = 1; //Pongo el registro GO a 1 para realizar una conversion
@@ -82,7 +82,7 @@ void main()
         //Configuracion del convertidor AD
        //Prescaler de 16, CHS = 110; GO = 0; ADON = 1
         ADCON0= 0x71;
-        //ADFM = 1, resto de bits a 0, todos los terminales como analógicos y tension de referencia la de alimentación
+        //ADFM = 1, resto de bits a 0, todos los terminales como analÃ³gicos y tension de referencia la de alimentaciÃ³n
         ADCON1 = 0x80;
         
         //Configuracion de la interrupcion del convertidor AD
@@ -98,8 +98,8 @@ void main()
         //Configuracion del timer
          T0CON= 0x85;//Prescaler de 64
          INTCON.TMR0IF = 0; // se pone el flag a 0
-         INTCON.TMR0IE = 1; // se habilita la interrupción del Timer 0
-         //se carga el valor inicial (alfa) del ‘contador’
+         INTCON.TMR0IE = 1; // se habilita la interrupciÃ³n del Timer 0
+         //se carga el valor inicial (alfa) del â€˜contadorâ€™
          TMR0H =(18661 >>8); //Primero los bits altos
          TMR0L = (18661);//Despues los bits bajos
          INTCON.PEIE = 1;
