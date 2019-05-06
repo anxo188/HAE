@@ -2,7 +2,7 @@
       short int dec = 0;
       short int uni = 0;
       
-void interrupt (){ //Rutina llamada para gesti髇 de interrupciones
+void interrupt (){ //Rutina llamada para gesti贸n de interrupciones
         if(uni == 9 && dec == 9){
                 uni =0;
                 dec=0;
@@ -15,7 +15,7 @@ void interrupt (){ //Rutina llamada para gesti髇 de interrupciones
              uni++;
         }
 
-       INTCON.INT0IF=0;//Borra el flag de interrupci髇 de INT0
+       INTCON.INT0IF=0;//Borra el flag de interrupci贸n de INT0
 }
 void main() {
       //Variables
@@ -30,12 +30,12 @@ void main() {
      //Habilita la resistencia pull up de RB0
      RBPU_bit = 0;
      
-     //Configuraci髇 terminales de salida
-     TRISB = 0x01;//El 鷑ico terminal de entrada es RB0
+     //Configuraci贸n terminales de salida
+     TRISB = 0x01;//El 煤nico terminal de entrada es RB0
      TRISD = 0;//Puerto D tiene todos los terminales de salida
      TRISA = 0xFC; //Terminales de salida 1 y 2 del puerto A
      
-     //Inicializa la se馻l de los pines
+     //Inicializa la se帽al de los pines
      //Display 1
      PORTA = 0xFE;
      PORTD = 0x3F;
@@ -44,7 +44,7 @@ void main() {
      PORTD = 0x3F;
              
      //Se habilitan interrupciones
-     INTCON2.INTEDG0=0; //Con este valor la interrupcio髇 la produce un flanco de bajada
+     INTCON2.INTEDG0=0; //Con este valor la interrupcio贸n la produce un flanco de bajada
      INTCON.INT0IF = 0;//Se inicializa el flag de interrupcion
      INTCON.INT0IE = 1;//Se habilita la interrupcion en INT0
      INTCON.GIE=1; //Se habilitan las interrupciones en general
