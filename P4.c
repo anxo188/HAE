@@ -1,6 +1,6 @@
 int rotacion = 0; //Guarda el estado del motor
-//Valores que puede tomar el puerto, el primer valor equivale a -90º del motor
-//                    -90º   A    B     C    D
+//Valores que puede tomar el puerto, el primer valor equivale a -90Âº del motor
+//                    -90Âº   A    B     C    D
 short int bobinas[] = {0x06,0x08,0x04,0x02,0x01};
 short int der[] = {0x01,0x08,0x04,0x02,0x01,0x08,0x04,0x02,0x03};
 
@@ -31,18 +31,18 @@ void interrupt(){
 
       }
       
-     INTCON.INT0IF = 0;//Borra el flag de interrupción
+     INTCON.INT0IF = 0;//Borra el flag de interrupciÃ³n
 }
 
 void main() {
 
      ADCON1 = 0x07;
 
-     //Configuración de puertos
+     //ConfiguraciÃ³n de puertos
      TRISC = 0; //Puerto de salida
      TRISB.B0 = 1;//Puerto de entrada
      
-     //Configuración de la interrupción
+     //ConfiguraciÃ³n de la interrupciÃ³n
      RCON.IPEN = 0;
      INTCON2.INTEDG0 = 0;
      INTCON.INT0IF = 0;
@@ -53,7 +53,7 @@ void main() {
      
      while(1){
               if(rotacion == 0){
-              //Inicializa la posición del motor a -90º
+              //Inicializa la posiciÃ³n del motor a -90Âº
                     PORTC = bobinas[4];
                     delay_ms(1000);
                     PORTC = bobinas[3];
