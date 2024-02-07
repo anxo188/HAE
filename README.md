@@ -1,14 +1,6 @@
-# HAE
-Codigos practicas hae
+# Micro controller code
+Small programs made as part of exercices of a subject of the Computer Engineer Degree.
+All the code is destinated to a microcontroller PIC18F452 using C language.
 
-### Que Contiene el repositorio
-
-Código hecho para los trabajos prácticos de la asignatura de Hardware de Aplicación Específica
-
-### A que plataforma están dedicados los códigos
-
-Estos códigos están implementados con base en el microcontrolador PIC18F452 y en lenguaje C
-
-### Renuncia
-
-El fichero  Tecla12INT.h así como los ficheros ".pdf" no son de mi creación sino que pertenecen al profesor de la asignatura, no obstante se encuentran en el repositorio en pos de mantener una coherencia sobre la utilidad de cada código.
+## Disclaimer
+The code in the file Tecla12INT.h and the pdf are not from my property, those files are provided by the teacher of the subject.
